@@ -122,6 +122,7 @@ int main() {
             printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
         }
     } while (sexo != 1 && sexo != 2);
+
     return 0;
 }
 

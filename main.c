@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define SEDENTARIO 1.1;
 #define SEMIACTIVO 1.22;
@@ -28,7 +29,7 @@ float calculoHidratosMujer(float proteina, float grasas, float tmbm, float getm)
 
 int main() {
 
-    int sexo;
+    char sexo[6];
     float edad, altura, peso;
     float proteina, hidratos, grasas;
     float tmbh = 0, tmbm = 0, geth = 0, getm = 0;
@@ -38,9 +39,10 @@ int main() {
         printf("1. Hombre\n");
         printf("2. Mujer \n");
 
-        scanf("%d", &sexo);
+			fflush(stdin);
+			scanf ("%s", sexo);
 
-        if (sexo == 1) {
+        if (strncmp(sexo, "1", 1) == 0 || strncmp(sexo, "Hombre", 6) == 0 || strncmp(sexo, "hombre", 6) == 0) {
             do {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
@@ -79,7 +81,8 @@ int main() {
             printf("\tProteina: %.2f\n", proteina);
             printf("\tGrasas: %.2f\n", grasas);
             printf("\tHidratos: %.2f\n", hidratos);
-        } else if (sexo == 2) {
+
+        } else if (strncmp(sexo, "2", 1) == 0 || strncmp(sexo, "Mujer", 5) == 0 || strncmp(sexo, "mujer", 5) == 0) {
             do {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
@@ -118,10 +121,11 @@ int main() {
             printf("\tProteina: %.2f\n", proteina);
             printf("\tGrasas: %.2f\n", grasas);
             printf("\tHidratos: %.2f\n", hidratos);
+
         } else {
             printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
         }
-    } while (sexo != 1 && sexo != 2);
+    } while (strncmp(sexo, "1", 1) != 0 && strncmp(sexo, "Hombre", 6) != 0 && strncmp(sexo, "hombre", 6) != 0 && strncmp(sexo, "2", 1) != 0 && strncmp(sexo, "Mujer", 5) != 0 && strncmp(sexo, "mujer", 5) != 0);
 
     return 0;
 }

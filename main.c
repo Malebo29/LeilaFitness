@@ -39,10 +39,15 @@ int main() {
         printf("1. Hombre\n");
         printf("2. Mujer \n");
 
-			fflush(stdin);
-			scanf ("%s", sexo);
+        fflush(stdin);
+        scanf("%s", sexo);
 
-        if (strncmp(sexo, "1", 1) == 0 || strncmp(sexo, "Hombre", 6) == 0 || strncmp(sexo, "hombre", 6) == 0) {
+        if (strncmp(sexo, "1", 1) == 0 ||
+            strncmp(sexo, "Hombre", 6) == 0 ||
+            strncmp(sexo, "hombre", 6) == 0 ||
+            strncmp(sexo, "H", 1) == 0 ||
+            strncmp(sexo, "h", 1) == 0) {
+
             do {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
@@ -82,7 +87,11 @@ int main() {
             printf("\tGrasas: %.2f\n", grasas);
             printf("\tHidratos: %.2f\n", hidratos);
 
-        } else if (strncmp(sexo, "2", 1) == 0 || strncmp(sexo, "Mujer", 5) == 0 || strncmp(sexo, "mujer", 5) == 0) {
+        } else if (strncmp(sexo, "2", 1) == 0 ||
+                   strncmp(sexo, "Mujer", 5) == 0 ||
+                   strncmp(sexo, "mujer", 5) == 0 ||
+                   strncmp(sexo, "M", 1) == 0 ||
+                   strncmp(sexo, "m", 1) == 0) {
             do {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
@@ -125,7 +134,11 @@ int main() {
         } else {
             printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
         }
-    } while (strncmp(sexo, "1", 1) != 0 && strncmp(sexo, "Hombre", 6) != 0 && strncmp(sexo, "hombre", 6) != 0 && strncmp(sexo, "2", 1) != 0 && strncmp(sexo, "Mujer", 5) != 0 && strncmp(sexo, "mujer", 5) != 0);
+    } while (strncmp(sexo, "1", 1) != 0 && strncmp(sexo, "Hombre", 6) != 0 &&
+             strncmp(sexo, "hombre", 6) != 0 && strncmp(sexo, "2", 1) != 0 &&
+             strncmp(sexo, "Mujer", 5) != 0 && strncmp(sexo, "mujer", 5) != 0 &&
+             strncmp(sexo, "H", 1) != 0 && strncmp(sexo, "h", 1) != 0 &&
+             strncmp(sexo, "M", 1) != 0 && strncmp(sexo, "m", 1) != 0);
 
     return 0;
 }

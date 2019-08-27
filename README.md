@@ -10,4 +10,4 @@ Basandose en estos 2 datos se calculan las Proteinas, Grasas e Hidratos de carbo
 
 Nota: Utilizar siempre bajo la Supervicion de un Profesional Cualificado.
 
-Para Utilizarlo Simplemente descarga el archivo .exe del repositorio y listo.
+Para Utilizarlo Simplemente descarga el archivo app del repositorio y listo.

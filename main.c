@@ -27,32 +27,33 @@ float calculoHidratosHombre(float proteina, float grasas, float tmbh, float geth
 
 float calculoHidratosMujer(float proteina, float grasas, float tmbm, float getm);
 
-int main() {
-
-    char sexo[6];
+int main()
+{
+    
+    char sexo[7];
     float edad, altura, peso;
     float proteina, hidratos, grasas;
     float tmbh = 0, tmbm = 0, geth = 0, getm = 0;
-
-    do {
+    
+    do
+    {
         printf("\t Selecione el Sexo del Cliente: \n");
         printf("1. Hombre\n");
         printf("2. Mujer \n");
-
+        
         fflush(stdin);
         scanf("%s", sexo);
-
-        if (strncmp(sexo, "1", 1) == 0 ||
-            strncmp(sexo, "Hombre", 6) == 0 ||
-            strncmp(sexo, "hombre", 6) == 0 ||
-            strncmp(sexo, "H", 1) == 0 ||
-            strncmp(sexo, "h", 1) == 0) {
-
-            do {
+        
+        if (strncmp(sexo,"1",6) == 0 || strncmp(sexo,"Hombre",6) == 0 || strncmp(sexo,"hombre",6) == 0 ||
+            strncmp(sexo,"H",6) == 0 || strncmp(sexo,"h",6) == 0)
+        {
+            do
+            {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
                 scanf("%f", &edad);
-                if (edad < 1 || edad > 99) {
+                if (edad < 1 || edad > 99)
+                {
                     printf("La edad Introducida no es Correcta. Vuelva a Intentarlo.\n");
                 }
             } while (edad < 1 || edad > 99);
@@ -62,41 +63,41 @@ int main() {
             printf("\t Introduce el Peso del Cliente: ");
             fflush(stdin);
             scanf("%f", &peso);
-
+            
             printf("\n");
-
+            
             // TMB
             tmbh = tasaMetablicaBasalHombre(peso, edad, altura);
-
+            
             // GET
             geth = gastoEnergeticoTotalHombre(tmbh);
-
+            
             printf("\n");
-
+            
             proteina = calculoProteina(peso);
             grasas = calculoGrasas(peso);
-
+            
             printf("\n");
-
+            
             hidratos = calculoHidratosHombre(proteina, grasas, tmbh, geth);
-
+            
             printf("\tLos Calculos son los Siguientes:\n");
             printf("\tTMB: %.2f\n", tmbh);
             printf("\tGET: %.2f\n", geth);
             printf("\tProteina: %.2f\n", proteina);
             printf("\tGrasas: %.2f\n", grasas);
             printf("\tHidratos: %.2f\n", hidratos);
-
-        } else if (strncmp(sexo, "2", 1) == 0 ||
-                   strncmp(sexo, "Mujer", 5) == 0 ||
-                   strncmp(sexo, "mujer", 5) == 0 ||
-                   strncmp(sexo, "M", 1) == 0 ||
-                   strncmp(sexo, "m", 1) == 0) {
-            do {
+        }
+        else if (strncmp(sexo,"2",6) == 0 || strncmp(sexo,"Mujer",6) == 0 || strncmp(sexo,"mujer",6) == 0 ||
+                 strncmp(sexo,"M",6) == 0 || strncmp(sexo,"m",6) == 0)
+        {
+            do
+            {
                 printf("\t Introduce la Edad del Cliente: ");
                 fflush(stdin);
                 scanf("%f", &edad);
-                if (edad < 1 || edad > 99) {
+                if (edad < 1 || edad > 99)
+                {
                     printf("La edad Introducida no es Correcta. Vuelva a Intentarlo.\n");
                 }
             } while (edad < 1 || edad > 99);
@@ -106,212 +107,241 @@ int main() {
             printf("\t Introduce el Peso del Cliente: ");
             fflush(stdin);
             scanf("%f", &peso);
-
+            
             printf("\n");
-
+            
             // TMB
             tmbm = tasaMetablicaBasalMujer(peso, edad, altura);
-
+            
             // GET
             getm = gastoEnergeticoTotalMujer(tmbm);
-
+            
             printf("\n");
-
+            
             proteina = calculoProteina(peso);
             grasas = calculoGrasas(peso);
-
+            
             printf("\n");
-
+            
             hidratos = calculoHidratosMujer(proteina, grasas, tmbm, getm);
-
+            
             printf("\tLos Calculos son los Siguientes:\n");
             printf("\tTMB: %.2f\n", tmbm);
             printf("\tGET: %.2f\n", getm);
             printf("\tProteina: %.2f\n", proteina);
             printf("\tGrasas: %.2f\n", grasas);
             printf("\tHidratos: %.2f\n", hidratos);
-
-        } else {
+        }
+        else
+        {
             printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
         }
-    } while (strncmp(sexo, "1", 1) != 0 && strncmp(sexo, "Hombre", 6) != 0 &&
-             strncmp(sexo, "hombre", 6) != 0 && strncmp(sexo, "2", 1) != 0 &&
-             strncmp(sexo, "Mujer", 5) != 0 && strncmp(sexo, "mujer", 5) != 0 &&
-             strncmp(sexo, "H", 1) != 0 && strncmp(sexo, "h", 1) != 0 &&
-             strncmp(sexo, "M", 1) != 0 && strncmp(sexo, "m", 1) != 0);
-
+    } while (strncmp(sexo,"1",6) != 0 && strncmp(sexo,"Hombre",6) != 0 && strncmp(sexo,"hombre",6) != 0 && strncmp(sexo,"H",6) != 0 && strncmp(sexo,"h",6) != 0 &&
+             strncmp(sexo,"2",6) != 0 && strncmp(sexo,"Mujer",6) != 0 && strncmp(sexo,"mujer",6) != 0 && strncmp(sexo,"M",6) != 0 && strncmp(sexo,"m",6) != 0);
+    
     return 0;
 }
 
-float tasaMetablicaBasalHombre(float peso, float edad, float altura) {
+float tasaMetablicaBasalHombre(float peso, float edad, float altura)
+{
     float resul = 0;
-
+    
     resul = 66 + (13.7 * peso) + (5 * altura) - (6.8 * edad);
-
+    
     return resul;
 }
 
-float tasaMetablicaBasalMujer(float peso, float edad, float altura) {
+float tasaMetablicaBasalMujer(float peso, float edad, float altura)
+{
     float resul = 0;
-
+    
     resul = 655 + (9.6 * peso) + (1.8 * altura) - (4.7 * edad);
-
+    
     return resul;
 }
 
-float gastoEnergeticoTotalHombre(float tmbh) {
+float gastoEnergeticoTotalHombre(float tmbh)
+{
     float resul = 0;
-    int op;
-
-    do {
+    char op[11];
+    
+    do
+    {
         printf("Introduce el Factor de actividad del Cliente: \n");
         printf("1. Sedentario.\n");
         printf("2. Semiactivo.\n");
         printf("3. Activo.\n");
         printf("4. Muy Activo.\n");
-
+        
         fflush(stdin);
-        scanf("%d", &op);
-
-        if (op < 1 || op > 4) {
-            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
-        } else {
-            switch (op) {
-                case 1:
-                    resul = tmbh * SEDENTARIO;
-                    break;
-                case 2:
-                    resul = tmbh * SEMIACTIVO;
-                    break;
-                case 3:
-                    resul = tmbh * ACTIVO;
-                    break;
-                case 4:
-                    resul = tmbh * MUYACTIVO;
-                    break;
-            }
+        scanf("%s", op);
+        
+        if (strncmp(op,"1",10) == 0 || strncmp(op,"Sedentario",10) == 0 || strncmp(op,"sedentario",10) == 0)
+        {
+            resul = tmbh * SEDENTARIO;
         }
-    } while (op < 1 || op > 4);
-
+        else if (strncmp(op,"2",10) == 0 || strncmp(op,"Semiactivo",10) == 0 || strncmp(op,"semiactivo",10) == 0)
+        {
+            resul = tmbh * SEMIACTIVO;
+        }
+        else if (strncmp(op,"3",10) == 0 || strncmp(op,"Activo",6) == 0 || strncmp(op,"activo",6) == 0)
+        {
+            resul = tmbh * ACTIVO;
+        }
+        else if (strncmp(op,"4",10) == 0 || strncmp(op,"Muy Activo",10) == 0 || strncmp(op,"muy activo",10) == 0 || strncmp(op,"Muy activo",10) == 0 || strncmp(op,"muy Activo",10) == 0)
+        {
+            resul = tmbh * MUYACTIVO;
+        }
+        else
+        {
+            printf("\nLa Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n\n");
+        }
+    } while (strncmp(op,"1",10) != 0 && strncmp(op,"2",10) != 0 && strncmp(op,"3",10) != 0 && strncmp(op,"4",10) != 0 &&
+             strncmp(op,"Sedentario",10) != 0 && strncmp(op,"sedentario",10) != 0 &&
+             strncmp(op,"Semiactivo",10) != 0 && strncmp(op,"semiactivo",10) != 0 &&
+             strncmp(op,"Activo",6) != 0 && strncmp(op,"activo",6) != 0 &&
+             strncmp(op,"Muy Activo",10) != 0 && strncmp(op,"muy activo",10) != 0 &&
+             strncmp(op,"Muy activo",10) != 0 && strncmp(op,"muy Activo",10) != 0);
+    
     return resul;
 }
 
-float gastoEnergeticoTotalMujer(float tmbm) {
+float gastoEnergeticoTotalMujer(float tmbm)
+{
     float resul = 0;
-    int op;
-    do {
+    char op[11];
+    
+    do
+    {
         printf("Introduce el Factor de actividad del Cliente: \n");
         printf("1. Sedentario.\n");
         printf("2. Semiactivo.\n");
         printf("3. Activo.\n");
         printf("4. Muy Activo.\n");
-
+        
         fflush(stdin);
-        scanf("%d", &op);
-
-        if (op < 1 || op > 4) {
-            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
-        } else {
-            switch (op) {
-                case 1:
-                    resul = tmbm * SEDENTARIO;
-                    break;
-                case 2:
-                    resul = tmbm * SEMIACTIVO;
-                    break;
-                case 3:
-                    resul = tmbm * ACTIVO;
-                    break;
-                case 4:
-                    resul = tmbm * MUYACTIVO;
-                    break;
-            }
+        scanf("%s", op);
+        
+        if (strncmp(op,"1",10) == 0 || strncmp(op,"Sedentario",10) == 0 || strncmp(op,"sedentario",10) == 0)
+        {
+            resul = tmbm * SEDENTARIO;
         }
-    } while (op < 1 || op > 4);
-
+        else if (strncmp(op,"2",10) == 0 || strncmp(op,"Semiactivo",10) == 0 || strncmp(op,"semiactivo",10) == 0)
+        {
+            resul = tmbm * SEMIACTIVO;
+        }
+        else if (strncmp(op,"3",10) == 0 || strncmp(op,"Activo",6) == 0 || strncmp(op,"activo",6) == 0)
+        {
+            resul = tmbm * ACTIVO;
+        }
+        else if (strncmp(op,"4",10) == 0 || strncmp(op,"Muy Activo",10) == 0 || strncmp(op,"muy activo",10) == 0 || strncmp(op,"Muy activo",10) == 0 || strncmp(op,"muy Activo",10) == 0)
+        {
+            resul = tmbm * MUYACTIVO;
+        }
+        else
+        {
+            printf("\nLa Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n\n");
+        }
+    } while (strncmp(op,"1",10) != 0 && strncmp(op,"2",10) != 0 && strncmp(op,"3",10) != 0 && strncmp(op,"4",10) != 0 &&
+             strncmp(op,"Sedentario",10) != 0 && strncmp(op,"sedentario",10) != 0 &&
+             strncmp(op,"Semiactivo",10) != 0 && strncmp(op,"semiactivo",10) != 0 &&
+             strncmp(op,"Activo",6) != 0 && strncmp(op,"activo",6) != 0 &&
+             strncmp(op,"Muy Activo",10) != 0 && strncmp(op,"muy activo",10) != 0 &&
+             strncmp(op,"Muy activo",10) != 0 && strncmp(op,"muy Activo",10) != 0);
+    
     return resul;
 }
 
-float calculoProteina(float peso) {
+float calculoProteina(float peso)
+{
     float resul = 0;
-
+    
     printf("Introduce los Gr/Kilo para el Calculo de Proteinas: ");
     fflush(stdin);
     scanf("%f", &resul);
-
+    
     resul *= peso;
-
+    
     printf("Gramos de Proteina: %.2f \n", resul);
-
+    
     return resul * 4;
 }
 
-float calculoGrasas(float peso) {
+float calculoGrasas(float peso)
+{
     float resul = 0;
-
+    
     printf("Introduce los Gr/Kilo para el Calculo de Grasas: ");
     fflush(stdin);
     scanf("%f", &resul);
-
+    
     resul *= peso;
-
+    
     printf("Gramos de Grasa: %.2f \n", resul);
-
+    
     return resul * 9;
 }
 
-float calculoHidratosHombre(float proteina, float grasas, float tmbh, float geth) {
+float calculoHidratosHombre(float proteina, float grasas, float tmbh, float geth)
+{
     float resul = 0;
-    int op;
-
+    char op[4];
+    
     do {
+        
         printf("A que Valor lo Quieres Aplicar???\n");
         printf("1. TMB\n");
         printf("2. GET\n");
-
+        
         fflush(stdin);
-        scanf("%d", &op);
-
-        if (op < 1 || op > 2) {
-            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
-        } else {
-            switch (op) {
-                case 1:
-                    resul = tmbh - (proteina + grasas);
-                    break;
-                case 2:
-                    resul = geth - (proteina + grasas);
-                    break;
-            }
+        scanf("%s", op);
+        
+        if (strncmp(op,"1",3) == 0 || strncmp(op,"TMB",3) == 0 || strncmp(op,"tmb",3) == 0)
+        {
+            resul = tmbh - (proteina + grasas);
         }
-    } while (op < 1 || op > 2);
+        else if (strncmp(op,"2",3) == 0 || strncmp(op,"GET",3) == 0 || strncmp(op,"get",3) == 0)
+        {
+            resul = geth - (proteina + grasas);
+        }
+        else
+        {
+            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
+        }
+    } while (strncmp(op,"1",3) != 0 && strncmp(op,"TMB",3) != 0 && strncmp(op,"tmb",3) != 0 &&
+             strncmp(op,"2",3) != 0 && strncmp(op,"GET",3) != 0 && strncmp(op,"get",3) != 0);
+    
     return resul;
 }
 
-float calculoHidratosMujer(float proteina, float grasas, float tmbm, float getm) {
+float calculoHidratosMujer(float proteina, float grasas, float tmbm, float getm)
+{
     float resul = 0;
-    int op;
-
+    char op[4];
+    
     do {
+        
         printf("A que Valor lo Quieres Aplicar???\n");
         printf("1. TMB\n");
         printf("2. GET\n");
-
+        
         fflush(stdin);
-        scanf("%d", &op);
-
-        if (op < 1 || op > 2) {
-            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
-        } else {
-            switch (op) {
-                case 1:
-                    resul = tmbm - (proteina + grasas);
-                    break;
-                case 2:
-                    resul = getm - (proteina + grasas);
-                    break;
-            }
+        scanf("%s", op);
+        
+        if (strncmp(op,"1",3) == 0 || strncmp(op,"TMB",3) == 0 || strncmp(op,"tmb",3) == 0)
+        {
+            resul = tmbm - (proteina + grasas);
         }
-    } while (op < 1 || op > 2);
+        else if (strncmp(op,"2",3) == 0 || strncmp(op,"GET",3) == 0 || strncmp(op,"get",3) == 0)
+        {
+            resul = getm - (proteina + grasas);
+        }
+        else
+        {
+            printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
+        }
+    } while (strncmp(op,"1",3) != 0 && strncmp(op,"TMB",3) != 0 && strncmp(op,"tmb",3) != 0 &&
+             strncmp(op,"2",3) != 0 && strncmp(op,"GET",3) != 0 && strncmp(op,"get",3) != 0);
+    
     return resul;
 }

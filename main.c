@@ -34,6 +34,7 @@ int main()
     float edad, altura, peso;
     float proteina, hidratos, grasas;
     float tmbh = 0, tmbm = 0, geth = 0, getm = 0;
+    int repeat = 0;
     
     do
     {
@@ -136,6 +137,11 @@ int main()
         {
             printf("La Opcion Introducida no es Correcta. Vuelve a Intentarlo.\n");
         }
+        
+        printf("¿Desea introducir a otro cliente?\n1 = Yes\n0 = No\n");
+        fflush(stdin);
+        scanf("%d", &repeat);
+        
     } while (strncmp(sexo,"1",6) != 0 && strncmp(sexo,"Hombre",6) != 0 && strncmp(sexo,"hombre",6) != 0 && strncmp(sexo,"H",6) != 0 && strncmp(sexo,"h",6) != 0 &&
              strncmp(sexo,"2",6) != 0 && strncmp(sexo,"Mujer",6) != 0 && strncmp(sexo,"mujer",6) != 0 && strncmp(sexo,"M",6) != 0 && strncmp(sexo,"m",6) != 0);
     

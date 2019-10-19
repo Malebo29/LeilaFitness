@@ -142,28 +142,20 @@ int main()
         fflush(stdin);
         scanf("%d", &repeat);
         
-    } while (strncmp(sexo,"1",6) != 0 && strncmp(sexo,"Hombre",6) != 0 && strncmp(sexo,"hombre",6) != 0 && strncmp(sexo,"H",6) != 0 && strncmp(sexo,"h",6) != 0 &&
-             strncmp(sexo,"2",6) != 0 && strncmp(sexo,"Mujer",6) != 0 && strncmp(sexo,"mujer",6) != 0 && strncmp(sexo,"M",6) != 0 && strncmp(sexo,"m",6) != 0);
+    } while ((strncmp(sexo,"1",6) != 0 && strncmp(sexo,"Hombre",6) != 0 && strncmp(sexo,"hombre",6) != 0 && strncmp(sexo,"H",6) != 0 && strncmp(sexo,"h",6) != 0 &&
+             strncmp(sexo,"2",6) != 0 && strncmp(sexo,"Mujer",6) != 0 && strncmp(sexo,"mujer",6) != 0 && strncmp(sexo,"M",6) != 0 && strncmp(sexo,"m",6) != 0) || repeat != 0);
     
     return 0;
 }
 
 float tasaMetablicaBasalHombre(float peso, float edad, float altura)
 {
-    float resul = 0;
-    
-    resul = 66 + (13.7 * peso) + (5 * altura) - (6.8 * edad);
-    
-    return resul;
+    return 66 + (13.7 * peso) + (5 * altura) - (6.8 * edad);
 }
 
 float tasaMetablicaBasalMujer(float peso, float edad, float altura)
 {
-    float resul = 0;
-    
-    resul = 655 + (9.6 * peso) + (1.8 * altura) - (4.7 * edad);
-    
-    return resul;
+    return 655 + (9.6 * peso) + (1.8 * altura) - (4.7 * edad);
 }
 
 float gastoEnergeticoTotalHombre(float tmbh)

@@ -1,6 +1,8 @@
 # LeilaFitness
 Calculadora de Calorias
 
+Gestion de una Lista de Clientes que se Almacenan en un Fichero para Poder gestionar sus datos personales y obtener los datos de manera automatizada
+
 Con esta calculadora se relizan las operaciones necesarias para obtener:
 
 1. La Tasa Metablica Basal (TMB) tanto de hombre como de Mujer.
